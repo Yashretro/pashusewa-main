@@ -2,10 +2,10 @@ name = "pashusewa"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
-account_id = "59955eb55ce55a99253f92941f0eb56a"
+account_id = "4bb35ae82fdec9b628fb2027f2fa88f7"
 
 # Configure D1 Database
 [[d1_databases]]
 binding = "DB"
 database_name = "pashusewa"
-database_id = "1a99bb16-26a1-4f62-bd23-efa3f1eb8174"
+database_id = "057f14c0-85bb-486d-934f-c87b5a86ae64"

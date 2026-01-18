@@ -12,3 +12,5 @@ frontend-react/dist/
 frontend-react/node_modules/
 backend/node_modules/
 .wrangler/
+.vercel
+.env*.local

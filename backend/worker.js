@@ -7,6 +7,9 @@ export default {
       const origin = request.headers.get("Origin");
       const allowedOrigins = [
         "https://pashusewa.pages.dev",
+        "https://pashusewa-5l2.pages.dev",
+        "https://master.pashusewa-5l2.pages.dev",
+        "https://frontend-react-gamma-one.vercel.app",
         "http://localhost:5173",
         "http://localhost:3000"
       ];
@@ -23,15 +26,26 @@ export default {
         return new Response(null, { headers: corsHeaders });
       }
 
+      if (path === "/") {
+        return new Response(
+          JSON.stringify({ status: "ok", endpoints: ["/api/reports", "/api/report", "/api/update-status"] }),
+          { headers: { "Content-Type": "application/json", ...corsHeaders } }
+        );
+      }
+
       if (path === "/api/reports") {
         return getReports(env, corsHeaders);
-      } else if (path === "/api/report") {
+      }
+
+      if (path === "/api/report") {
         return createReport(request, env, corsHeaders);
-      } else if (path === "/api/update-status") {
+      }
+
+      if (path === "/api/update-status") {
         return updateStatus(request, env, corsHeaders);
       }
 
-      return new Response("Not Found", { status: 404 });
+      return new Response("Not Found", { status: 404, headers: corsHeaders });
     } catch (error) {
       console.error("Error:", error);
       return new Response("Internal Server Error", { status: 500 });
